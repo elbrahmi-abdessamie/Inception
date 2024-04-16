@@ -16,4 +16,8 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 sudo apt update
 
 apt -y install docker-ce docker-ce-cli containerd.io
+
+* Create selfsigned certificate
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XX/ST=Morocco/L=Khoribga/O=42/OU=1337/CN=localhost"
+
 https://github.com/codesshaman/inception/blob/main/03_CLOUD_STORAGE.md
