@@ -1,15 +1,13 @@
-ARG DB_NAME \
-    DB_USER \
-    DB_PASS \
-    DB_ROOT
 
 FROM debian:bullseye-slim
 
 RUN apt update && apt install -y --no-install-recommends mariadb-server \
 	&& apt clean && rm -rf /var/lib/apt/lists/*
 
-COPY 
+COPY requirements/mariadb/conf/ /etc/my.cnf.d/
+COPY requirements/mariadb/tools/mariadb_setting.sh /
 
+CMD ["bash", "./mariadb_setting.sh;"]
 
 
 
