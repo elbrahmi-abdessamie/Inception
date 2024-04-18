@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: requirements/nginx/Dockerfile
+    container_name: nginx
+    ports:
+      - "443:443"
+    networks:
+      - inception
+    # volumes:
+    #   - ./configs/default:/etc/nginx/sites-enabled
+    #   - ./Cert:/etc/nginx/ssl/
+    restart: always
+
+  mariadb:
+    build:
+      context: .
+      dockerfile: ./requirements/mariadb/Dockerfile
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+    networks:
+      - inception
+    restart: always
+networks:
+  inception:

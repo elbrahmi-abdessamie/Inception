@@ -1,0 +1,4 @@
+[mysqld] {directive, which indicates the start of the configuration section for the MariaDB server.}
+skip-host-cache
+skip-name-resolve
+bind-address=0.0.0.0
