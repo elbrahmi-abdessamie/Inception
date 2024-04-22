@@ -1,13 +1,13 @@
 
 FROM debian:bullseye-slim
 
-RUN apt update && apt install -y --no-install-recommends mariadb-server \
+RUN apt update -y && apt install -y --no-install-recommends mariadb-server \
 	&& apt clean && rm -rf /var/lib/apt/lists/*
 
 COPY requirements/mariadb/conf/ /etc/my.cnf.d/
 COPY requirements/mariadb/tools/mariadb_setting.sh /
 
-CMD ["bash", "./mariadb_setting.sh;"]
+CMD ["bash", "mariadb_setting.sh"]
 
 
 
