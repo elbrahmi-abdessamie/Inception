@@ -1,0 +1,22 @@
+FROM debian:bullseye-slim
+
+
+RUN apt update -y && apt install -y php \
+	php-cli php-fpm php-mysql \
+	php-json default-mysql-client php-opcache php-mbstring \
+	php-xml php-gd php-curl wordpress curl && \
+	apt clean && \
+    rm -rf /var/lib/apt/lists/* && \
+	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+
+
+RUN chmod 755 /var/www/html \
+	&& chown -R www-data:www-data /var/www/html \
+	&& chmod +x wp-cli.phar && \
+    mv wp-cli.phar /usr/local/bin/wp
+
+COPY requirements/wordpress/conf/wp-config.php /var/www/html/
+COPY requirements/wordpress/tools/script.sh /
+EXPOSE 9000
+
+CMD ["bash", "script.sh"]
