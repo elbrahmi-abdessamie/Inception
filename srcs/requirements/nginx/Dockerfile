@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bullseye
 
 # RUN apk update &&\
 # 	apk add nginx && mkdir -p /etc/nginx/ssl/
