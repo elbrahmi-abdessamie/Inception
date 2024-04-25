@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bullseye
 
 
 RUN apt update -y && apt install -y php \
@@ -15,7 +15,7 @@ RUN chmod 755 /var/www/html \
 	&& chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
-# COPY requirements/wordpress/conf/wp-config.php /var/www/html/
+COPY requirements/wordpress/conf/wp-config.php /var/www/html/
 COPY requirements/wordpress/tools/script.sh /
 EXPOSE 9000
 
