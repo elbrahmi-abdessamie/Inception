@@ -71,6 +71,8 @@ services:
       - "6379:6379"
     networks:
       - inception
+    depends_on:
+      - wordpress
     volumes:
       - wordpress_v:/var/www/html
     restart: on-failure
