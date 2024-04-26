@@ -61,6 +61,19 @@ services:
     networks:
       - inception
     restart: on-failure
+  
+  redis:
+    build:
+      context: .
+      dockerfile: requirements/bonus/redis/Dockerfile
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - inception
+    volumes:
+      - wordpress_v:/var/www/html
+    restart: on-failure
 
 volumes:
   wordpress_v:
