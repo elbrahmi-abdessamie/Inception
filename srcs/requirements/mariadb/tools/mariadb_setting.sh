@@ -5,7 +5,7 @@ service mariadb start
 sleep 5
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
 
-Secure MariaDB installation
+# Secure MariaDB installation
 mysql_secure_installation << EOF > /dev/null 2>&1
 n
 $MYSQL_ROOT_PASSWORD

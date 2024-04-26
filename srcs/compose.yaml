@@ -49,6 +49,19 @@ services:
       - wordpress_v:/var/www/html
     restart: on-failure
 
+  # adminer:
+  #   build:
+  #     context: .
+  #     dockerfile: requirements/bonus/adminer/Dockerfile
+  #   container_name: adminer
+  #   depends_on:
+  #     - mariadb
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - inception
+  #   restart: on-failure
+
 volumes:
   wordpress_v:
     name: wordpress_v
