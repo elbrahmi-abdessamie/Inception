@@ -77,6 +77,22 @@ services:
       - wordpress_v:/var/www/html
     restart: on-failure
 
+  vsftpd:
+    build:
+      context: .
+      dockerfile: requirements/bonus/vsftpd/Dockerfile
+    container_name: vsftpd
+    ports:
+      - "21:21"
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress_v:/var/www/html
+    env_file: .env
+    restart: on-failure
+
 volumes:
   wordpress_v:
     name: wordpress_v
