@@ -7,5 +7,5 @@ RUN apt-get update && apt-get install -y vsftpd
 
 EXPOSE 21
 
-# COPY requirements/bonus/vsftpd/tools/script.sh /
-# CMD ["bash", "script.sh"]
+COPY requirements/bonus/vsftpd/tools/script.sh /
+CMD ["bash", "script.sh"]
