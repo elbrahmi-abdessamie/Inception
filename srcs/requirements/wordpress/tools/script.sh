@@ -29,7 +29,7 @@ wp user create ${WP_USER} ${WP_EMAIL} --role=author --user_pass=${WP_PASSWORD} -
 wp plugin install redis-cache --activate --path=/var/www/html --allow-root
 wp plugin update --all --path=/var/www/html --allow-root
 wp redis enable --path=/var/www/html  --allow-root
-wp theme install codeify --activate --allow-root
+wp theme install codeify --activate --path=/var/www/html --allow-root
 service php7.4-fpm stop
 
 # chmod -R 555 /var/www/html
