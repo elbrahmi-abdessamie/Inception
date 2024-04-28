@@ -1,5 +1,6 @@
 # **Inception**
 
+![](docker_style.jpeg)
 ## **Navigation Table:**
 
 1. [Docker Overview](#docker-overview)
@@ -35,6 +36,8 @@
 	1. [Named Volumes](#named-volumes)
 	1. [Bind Mounts](#bind-mounts)
 	1. [Use Cases for Docker Volumes](#use-cases-for-docker-volumes)
+10. [Inception Overview](#inception-overview)
+	1. [Services](#services)
 	
 # **Docker Overview**
 
@@ -351,3 +354,24 @@ docker run -d -v /path/on/host:/app/data my-container
 * Anonymous Volumes: Suitable for containers needing temporary storage or scenarios without data access beyond the container's lifecycle.
 * Named Volumes: Ideal for persistent data requirements across container restarts, excluding data retention post-container removal. Commonly used for databases, logs, and shared configuration.
 * Bind Mounts: Perfect for sharing host system data with containers, ensuring persistence and easy editing. Commonly employed in development environments for immediate code reflection inside the container.
+
+# **Inception Overview**
+
+- After we wraped our walnut around most important stuffs on docker, let us discuss some points about inception project.
+
+* By creating containers for various services we have explored the world of containerization using Docker but 
+![](Inception.png)
+
+So we add more layer by virtualizing required Docker images, creating them in our personal virtual machine.
+
+## **Services**
+
+| Service         | Usage	    |
+| :---------      | :---------- |
+| ```NGINX```     | *Web server to serve the static website and wordpress*.
+| ```WordPress``` | *WordPress is a content management system running in a container.*
+| ```MariaDB```   | *MariaDB is used as the database management system for the WordPress application.*
+| ```redis```     | *In-memory data store that can be used as a database, cache, or message broker.*
+| ```ftp```       | *FTP server container is provided for file transfer.*
+| ```Adminer```   | *Adminer is a database management tool used to interact with the MariaDB database.*
+
