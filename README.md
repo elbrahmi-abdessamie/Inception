@@ -1,6 +1,6 @@
 # **Inception**
 
-![](docker_style.jpeg)
+![](RM_images/docker_style.jpeg)
 ## **Navigation Table:**
 
 1. [Docker Overview](#docker-overview)
@@ -63,7 +63,7 @@ There are several key reasons why developers and organizations choose to use Doc
 
 # **Docker architecture**
 
-![](docker_arch.png)
+![](RM_images/docker_arch.png)
 
 # **Docker Compose**
 
@@ -71,6 +71,7 @@ Docker Compose is a tool for defining and running multi-container applications. 
 
 Compose simplifies the control of your entire application stack, making it easy to manage services, networks, and volumes in a single, comprehensible YAML configuration file. Then, with a single command, you create and start all the services from your configuration file.
 
+![](RM_images/docker-compose.png)
 ## *Define services in a Compose file*
 
 1. Ex:
@@ -197,7 +198,7 @@ Utilize the docker build command to generate the Docker image, assigning it a na
 ```bash
 docker build [OPTIONS] PATH | URL | -
 ```
-![](docker_build.png)
+![](RM_images/docker_build.png)
 
 # **Docker Container**
 
@@ -206,7 +207,7 @@ Because of the isolation that containers provide, they are well-suited for secur
 
 Since the container runs natively on Linux and shares the host machine’s kernel, it is lightweight, so it doesn’t use more memory than other executables. If you stop a container, it will not automatically restart unless you configure it that way. However, containers can be much more efficient than virtual machines because they don’t need the overhead of an entire operating system. They share a single kernel with other containers and boot in seconds instead of minutes.
 
-![](docker_op.png)
+![](RM_images/docker_op.png)
 
 # **Docker Commands**
 - *Here some docker commands frequently used*
@@ -360,7 +361,7 @@ docker run -d -v /path/on/host:/app/data my-container
 - After we wraped our walnut around most important stuffs on docker, let us discuss some points about inception project.
 
 * By creating containers for various services we have explored the world of containerization using Docker but 
-![](Inception.png)
+![](RM_images/Inception.png)
 
 So we add more layer by virtualizing required Docker images, creating them in our personal virtual machine.
 
