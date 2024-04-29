@@ -1,6 +1,6 @@
 server 
 {
-	listen 80;
+	listen 3080;
 
 	location / {
 		root /var/www/html;
