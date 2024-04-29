@@ -10,6 +10,8 @@ RUN chmod 755 /var/www/html && chown -R www-data:www-data /var/www/html/
 COPY requirements/bonus/website/assets/image /var/www/html/image/
 COPY requirements/bonus/website/assets/css /var/www/html/css/
 COPY requirements/bonus/website/assets/webfonts /var/www/html/webfonts/
+COPY requirements/bonus/website/assets/index.html /var/www/html/
+COPY requirements/bonus/website/assets/main.js /var/www/html/
 
-EXPOSE 80
+EXPOSE 3080
 CMD ["nginx" , "-g", "daemon off;"]

@@ -98,7 +98,7 @@ services:
       dockerfile: requirements/bonus/website/Dockerfile
     container_name: website
     ports:
-      - "80:80"
+      - "3080:3080"
     restart: always
 volumes:
   wordpress_v:
