@@ -10,7 +10,7 @@ server {
     keepalive_timeout 70;
 
 	location /website {
-		proxy_pass http://localhost:3080;
+		proxy_pass http://website:3080;
 		proxy_set_header Host $host;
 	}
 
