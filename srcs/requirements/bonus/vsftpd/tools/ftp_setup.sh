@@ -25,7 +25,7 @@ echo $FTP_USR | tee -a /etc/vsftpd.userlist &> /dev/null
 adduser ${FTP_USR} root
 
 #CREATE SSL CERTIFICATE FOR FTP
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $SSL_CRT_KET -out $SSL_CERT -subj "/C=XX/ST=Morocco/L=Khoribga/O=42/OU=1337/CN=localhost"
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $SSL_CRT_KET -out $SSL_CERT -subj "/C=XX/ST=Morocco/L=Khoribga/O=42/OU=1337/CN=aelbrahm.42.fr"
 
 #ADD&MODIFIE CUSTOM FTP CONFIGURATION
 sed -i "s|#chroot_local_user=YES|chroot_local_user=YES|g"  $FTP_CONFIG_FILE && \
