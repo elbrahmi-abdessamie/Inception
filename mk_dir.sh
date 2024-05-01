@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -d "~/Desktop/data" ]; then
-        mkdir -p /Users/$USER/Desktop/data/mariadb
-        mkdir -p /Users/$USER/Desktop/data/wordpress
+if [ ! -d "/home/$USER/data" ]; then
+        mkdir -p /home/$USER/data/mariadb
+        mkdir -p /home/$USER/data/wordpress
 fi

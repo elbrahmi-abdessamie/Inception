@@ -107,7 +107,7 @@ volumes:
     driver_opts:
       o: bind
       type: 'none'
-      device: /Users/aelbrahm/Desktop/data/wordpress
+      device: /home/aelbrahm/data/wordpress
 
 
   mariadb_v:
@@ -116,7 +116,7 @@ volumes:
     driver_opts:
       o: bind
       type: 'none'
-      device: /Users/aelbrahm/Desktop/data/mariadb
+      device: /home/aelbrahm/data/mariadb
 
 networks:
   inception:
