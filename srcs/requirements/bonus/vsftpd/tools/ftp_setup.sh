@@ -18,7 +18,7 @@ EOF
 
 #SET UP FTP USER
 adduser --home /var/www/html $FTP_USR --disabled-password < cr
-# rm cr
+rm cr
 echo "${FTP_USR}:${FTP_PWD}" | /usr/sbin/chpasswd
 chown -R $FTP_USR:$FTP_USR /var/www/html
 echo $FTP_USR | tee -a /etc/vsftpd.userlist &> /dev/null
