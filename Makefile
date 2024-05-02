@@ -59,15 +59,15 @@ down: stop
 
 clean: down
 		docker system prune -a
-		rm -rf ~/Desktop/data/wordpress/*
-		rm -rf ~/Desktop/data/mariadb/*
+		rm -rf /home/aelbrahm/data/wordpress/*
+		rm -rf /home/aelbrahm/data/mariadb/*
 fclean: 
 	printf "\033[32;1mTotal clean of all configurations docker\033[0m\n"
 	$(COMPOSE_CMD) -f $(COMPOSE_PATH) --project-name $(P_NAME) down -v
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
-	rm -rf ~/Desktop/data/wordpress/*
-	rm -rf ~/Desktop/data/mariadb/*
+	sudo rm -rf /home/aelbrahm/data/wordpress/*
+	sudo rm -rf /home/aelbrahm/data/mariadb/*
 
 .SILENT : VLM_DIR build clean fclean down
