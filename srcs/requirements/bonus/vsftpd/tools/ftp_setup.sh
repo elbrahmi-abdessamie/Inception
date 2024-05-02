@@ -57,9 +57,6 @@ service vsftpd stop
 
 rm $SCRIPT_FILE
 
-chown -R $FTP_USR:$FTP_USR /var/www/html/wp-content -v > /tmp/tst 2>err
 #LAUNCH FTP DAEMON
-echo "Here is the check" > /tmp/eTst
-echo $FTP_USR > /tmp/dtp_usr
 /usr/sbin/vsftpd
 
