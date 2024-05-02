@@ -85,8 +85,6 @@ services:
       - "21:21"
     networks:
       - inception
-    depends_on:
-      - wordpress
     volumes:
       - wordpress_v:/var/www/html
     env_file: .env
