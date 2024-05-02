@@ -3,10 +3,7 @@
 
 sleep 10
 
-chmod 755 /var/www/html \
-	&& chown -R www-data:www-data /var/www/html \
-	&& chmod +x wp-cli.phar && \
-    mv wp-cli.phar /usr/local/bin/wp
+chmod 755 /var/www/html && chown -R www-data:www-data /var/www/html && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 service php7.4-fpm start
 
@@ -30,5 +27,18 @@ wp redis enable --path=/var/www/html  --allow-root
 wp theme install codeify --activate --path=/var/www/html --allow-root
 service php7.4-fpm stop
 
-# chmod -R 555 /var/www/html
+cat<<EOF > cu
+
+
+
+
+
+y
+EOF
+
+adduser --home /var/www/html $FTP_USR --disabled-password < cu
+rm cu
+
+chown -R www-data:www-data /var/www/html
+chown -R $FTP_USR:$FTP_USR /var/www/html/wp-content
 /usr/sbin/php-fpm7.4 -F

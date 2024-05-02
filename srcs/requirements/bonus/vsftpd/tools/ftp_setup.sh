@@ -5,6 +5,7 @@ SSL_CERT="/etc/ssl/private/vsftpd.crt"
 SSL_CRT_KET="/etc/ssl/private/vsftpd.key"
 SCRIPT_FILE="/usr/local/bin/ftp_setup.sh"
 
+sleep 15
 service vsftpd start
 
 cat<<EOF > cr
@@ -22,7 +23,7 @@ rm cr
 echo "${FTP_USR}:${FTP_PWD}" | /usr/sbin/chpasswd
 chown -R $FTP_USR:$FTP_USR /var/www/html
 echo $FTP_USR | tee -a /etc/vsftpd.userlist &> /dev/null
-adduser ${FTP_USR} root
+adduser ${FTP_USR} root > /tmp/tst
 
 #CREATE SSL CERTIFICATE FOR FTP
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $SSL_CRT_KET -out $SSL_CERT -subj "/C=XX/ST=Morocco/L=Khoribga/O=42/OU=1337/CN=aelbrahm.42.fr"
@@ -56,5 +57,9 @@ service vsftpd stop
 
 rm $SCRIPT_FILE
 
+chown -R $FTP_USR:$FTP_USR /var/www/html/wp-content -v > /tmp/tst 2>err
 #LAUNCH FTP DAEMON
+echo "Here is the check" > /tmp/eTst
+echo $FTP_USR > /tmp/dtp_usr
 /usr/sbin/vsftpd
+
