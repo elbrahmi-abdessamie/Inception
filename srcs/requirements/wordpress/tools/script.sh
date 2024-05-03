@@ -28,14 +28,8 @@ wp redis enable --path=/var/www/html  --allow-root
 wp theme install codeify --activate --path=/var/www/html --allow-root
 service php7.4-fpm stop
 
-cat<<EOF > adduser --home /var/www/html $FTP_USR --disabled-password
+adduser --home /var/www/html $FTP_USR --disabled-password
 
-
-
-
-
-y
-EOF
 
 chown -R www-data:www-data /var/www/html
 chown -R $FTP_USR:$FTP_USR /var/www/html/wp-content
