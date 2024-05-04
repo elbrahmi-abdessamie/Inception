@@ -6,7 +6,7 @@
 #    By: aelbrahm <aelbrahm@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/29 09:22:56 by aelbrahm          #+#    #+#              #
-#    Updated: 2024/04/29 10:48:33 by aelbrahm         ###   ########.fr        #
+#    Updated: 2024/05/04 06:58:19 by aelbrahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ P_NAME = inception
 COMPOSE_CMD = docker-compose
 COMPOSE_PATH = ./srcs/docker-compose.yaml
 RUN = bash
+HOST=/Users/aelbrahm/Desktop/data
+VM=/home/aelbrahm/data
 #================================#
 #            RULES               #
 #================================#
@@ -59,15 +61,15 @@ down: stop
 
 clean: down
 		docker system prune -a
-		rm -rf /home/aelbrahm/data/wordpress/*
-		rm -rf /home/aelbrahm/data/mariadb/*
+		rm -rf $(VM)/wordpress/*
+		rm -rf $(VM)/mariadb/*
 fclean: 
 	printf "\033[32;1mTotal clean of all configurations docker\033[0m\n"
 	$(COMPOSE_CMD) -f $(COMPOSE_PATH) --project-name $(P_NAME) down -v
 	docker system prune --all --force --volumes
 	docker network prune --force
 	docker volume prune --force
-	sudo rm -rf /home/aelbrahm/data/wordpress/*
-	sudo rm -rf /home/aelbrahm/data/mariadb/*
+	rm -rf $(VM)/wordpress/*
+	rm -rf $(VM)/mariadb/*
 
 .SILENT : VLM_DIR build clean fclean down
