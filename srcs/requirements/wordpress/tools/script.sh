@@ -11,6 +11,7 @@ file="/etc/php/7.4/fpm/pool.d/www.conf"
 sed -i 's|listen = /run/php/php7.4-fpm.sock|listen = 9000|g' "$file"
 
 file="/var/www/html/wp-config.php"
+mv wp-config.php /var/www/html
 sed -i "s|database_name_here|${MYSQL_DATABASE_NAME}|g" "$file"
 sed -i "s|username_here|${MYSQL_USER}|g" "$file"
 sed -i "s|password_here|${MYSQL_PASSWORD}|g" "$file"
