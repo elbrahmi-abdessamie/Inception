@@ -6,7 +6,7 @@
 #    By: aelbrahm <aelbrahm@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/29 09:22:56 by aelbrahm          #+#    #+#              #
-#    Updated: 2024/05/04 06:58:19 by aelbrahm         ###   ########.fr        #
+#    Updated: 2024/05/04 10:51:36 by aelbrahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ COMPOSE_PATH = ./srcs/docker-compose.yaml
 RUN = bash
 HOST=/Users/aelbrahm/Desktop/data
 VM=/home/aelbrahm/data
+VOLUME_DIR_SCRIPT=srcs/requirements/wordpress/tools/mk_dir.sh
 #================================#
 #            RULES               #
 #================================#
@@ -38,8 +39,8 @@ all: VLM_DIR build
 
 VLM_DIR: 
 		printf "\033[32;1m Start building... \033[0m\n"
-		chmod +x mk_dir.sh
-		$(RUN) mk_dir.sh
+		chmod +x $(VOLUME_DIR_SCRIPT)
+		$(RUN) $(VOLUME_DIR_SCRIPT)
 
 
 build:
