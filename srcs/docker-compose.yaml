@@ -120,7 +120,7 @@ volumes:
     driver_opts:
       o: bind
       type: 'none'
-      device: /home/aelbrahm/data/wordpress
+      device: /home/$USER/data/wordpress
 
   mariadb_v:
     name: mariadb_v
@@ -128,7 +128,7 @@ volumes:
     driver_opts:
       o: bind
       type: 'none'
-      device: /home/aelbrahm/data/mariadb
+      device: /home/$USER/data/mariadb
 
 networks:
   inception:
